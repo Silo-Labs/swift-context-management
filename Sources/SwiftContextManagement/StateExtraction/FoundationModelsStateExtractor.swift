@@ -70,7 +70,7 @@ private extension FoundationModelsStateExtractor {
     
     /// Splits entries into parts, extracts state from each part, then combines the results.
     func extractStateInParts(entries: [Transcript.Entry]) async throws -> StructuredState {
-        guard entries.count > 1 {
+        guard entries.count > 1 else {
             return try await extractStateFromSingleEntry(entries[0])
         }
         
